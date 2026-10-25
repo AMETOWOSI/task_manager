@@ -70,4 +70,32 @@ void main() {
 
     expect(urgentTask.urgencyLevel, 5);
   });
+
+  test('serializes concurrent completion toggles for the same task', () async {
+    final task = await service.addTask(
+      title: 'Review changes',
+      priority: Priority.medium,
+    );
+
+    await Future.wait([
+      service.toggleTaskCompletion(task.id),
+      service.toggleTaskCompletion(task.id),
+    ]);
+
+    expect((await service.repository.getById(task.id)).completed, isFalse);
+  });
+
+  test('sorts urgent tasks before non-urgent tasks by priority', () async {
+    await service.addTask(title: 'High priority', priority: Priority.high);
+    final urgent = await service.addTask(
+      title: 'Urgent task',
+      priority: Priority.low,
+      urgent: true,
+      urgencyLevel: 2,
+    );
+
+    final tasks = await service.getTasks();
+
+    expect(tasks.first.id, urgent.id);
+  });
 }

@@ -12,5 +12,5 @@ class TaskNotFoundException extends TaskException {
 }
 
 class InvalidTaskException extends TaskException {
-  InvalidTaskException(String message) : super(message);
+  InvalidTaskException(super.message);
 }

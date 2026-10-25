@@ -3,12 +3,12 @@ import 'package:task_manager/models/priority.dart';
 
 class BasicTask extends Task {
   BasicTask(
-    int id,
-    String title,
-    Priority priority,
-    DateTime? dueDate,
-    bool completed,
-  ) : super(id, title, priority, dueDate, completed);
+    super.id,
+    super.title,
+    super.priority,
+    super.dueDate,
+    super.completed,
+  );
 
   BasicTask.fromJson(Map<String, dynamic> json)
     : super(

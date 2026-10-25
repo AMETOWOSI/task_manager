@@ -5,13 +5,13 @@ class UrgentTask extends Task {
   final int urgencyLevel;
 
   UrgentTask(
-    int id,
-    String title,
-    Priority priority,
-    DateTime? dueDate,
-    bool completed,
+    super.id,
+    super.title,
+    super.priority,
+    super.dueDate,
+    super.completed,
     this.urgencyLevel,
-  ) : super(id, title, priority, dueDate, completed);
+  );
 
   UrgentTask.fromJson(Map<String, dynamic> json)
     : urgencyLevel = json['urgencyLevel'] as int,

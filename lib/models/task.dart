@@ -1,7 +1,7 @@
 import 'package:task_manager/models/priority.dart';
 
 abstract class Task {
-  final int id; //ne peut pas être réassigné
+  final int id; // Cannot be reassigned after construction.
   String title;
   Priority priority;
   DateTime? dueDate;

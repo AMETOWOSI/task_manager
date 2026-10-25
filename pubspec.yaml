@@ -1,5 +1,5 @@
 name: task_manager
-description: A sample command-line application.
+description: A Flutter task list app with local persistence.
 version: 1.0.0
 # repository: https://github.com/my_org/my_repo
 
@@ -8,8 +8,17 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-  path: ^1.9.0
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
-  lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
   test: ^1.25.6
+
+flutter:
+  uses-material-design: true
